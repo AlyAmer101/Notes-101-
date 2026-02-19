@@ -1,0 +1,142 @@
+/* This file contains the corrected CSS for the empty-state and guide-modal sections */
+
+.empty-state {
+    text-align: center;
+    padding: 60px 20px;
+    color: var(--text-secondary);
+}
+
+.empty-state svg {
+    width: 80px;
+    height: 80px;
+    margin-bottom: 20px;
+    opacity: 0.5;
+}
+
+.empty-state h2 {
+    font-size: 1.5rem;
+    margin-bottom: 10px;
+}
+
+.empty-state p {
+    font-size: 1rem;
+}
+
+/* User Guide Modal */
+.guide-modal {
+    display: none;
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(0, 0, 0, 0.7);
+    z-index: 2000;
+    align-items: center;
+    justify-content: center;
+    padding: 20px;
+    backdrop-filter: blur(5px);
+}
+
+.guide-modal.active {
+    display: flex;
+}
+
+.guide-content {
+    background: var(--secondary-bg);
+    border-radius: 16px;
+    max-width: 700px;
+    width: 100%;
+    max-height: 85vh;
+    overflow-y: auto;
+    box-shadow: 0 20px 60px rgba(0, 0, 0, 0.5);
+    position: relative;
+}
+
+.guide-header {
+    position: sticky;
+    top: 0;
+    background: var(--card-bg);
+    padding: 25px 30px;
+    border-bottom: 2px solid var(--border);
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    border-radius: 16px 16px 0 0;
+    z-index: 10;
+}
+
+.guide-header h2 {
+    font-size: 1.8rem;
+    color: var(--text-primary);
+    display: flex;
+    align-items: center;
+    gap: 12px;
+}
+
+.guide-close {
+    background: var(--delete-btn);
+    color: white;
+    border: none;
+    width: 36px;
+    height: 36px;
+    border-radius: 50%;
+    cursor: pointer;
+    font-size: 1.5rem;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    transition: all 0.3s ease;
+}
+
+.guide-close:hover {
+    background: var(--delete-hover);
+    transform: rotate(90deg);
+}
+
+.guide-body {
+    padding: 30px;
+}
+
+.guide-section {
+    margin-bottom: 30px;
+}
+
+.guide-section h3 {
+    color: var(--accent);
+    font-size: 1.3rem;
+    margin-bottom: 12px;
+    display: flex;
+    align-items: center;
+    gap: 10px;
+}
+
+.guide-section p {
+    color: var(--text-secondary);
+    line-height: 1.8;
+    margin-bottom: 10px;
+}
+
+.guide-section ul {
+    margin: 10px 0;
+    padding-inline-start: 25px;
+}
+
+.guide-section li {
+    color: var(--text-secondary);
+    line-height: 1.8;
+    margin-bottom: 8px;
+}
+
+.guide-highlight {
+    background: var(--card-bg);
+    padding: 15px;
+    border-radius: 8px;
+    border-left: 4px solid var(--accent);
+    margin: 15px 0;
+}
+
+[dir="rtl"] .guide-highlight {
+    border-left: none;
+    border-right: 4px solid var(--accent);
+}

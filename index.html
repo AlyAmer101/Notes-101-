@@ -1,0 +1,139 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="description"
+    content="101 Notes, A simple and elegant notes application with drag and drop functionality" />
+
+  <!-- start tab icon -->
+  <link rel="icon" type="image/png" href="media/tab icon/favicon-96x96.png" sizes="96x96" />
+  <link rel="icon" type="image/svg+xml" href="media/tab icon/favicon.svg" />
+  <link rel="shortcut icon" href="media/tab icon/favicon.ico" />
+  <link rel="apple-touch-icon" sizes="180x180" href="media/tab icon/apple-touch-icon.png" />
+  <meta name="apple-mobile-web-app-title" content="101 Notes" />
+  <link rel="manifest" href="/site.webmanifest" />
+  <!-- end tab icon -->
+
+  <title>Notes 101</title>
+
+  <link rel="stylesheet" href="style.css" />
+</head>
+
+<body>
+  <header>
+    <div class="app-brand">
+      <img src="media/tab icon/favicon.svg" alt="101 Notes Logo" />
+      <span class="app-title">
+        <span class="brand-accent">101</span> Notes
+      </span>
+    </div>
+
+    <div class="header-actions">
+      <button id="settingsToggle" class="settings-toggle" aria-label="Settings">
+        ⚙️
+      </button>
+      <div class="header-controls" id="headerControls">
+        <button id="dragToggle" class="drag-toggle" aria-label="Toggle Drag & Drop">
+          <span id="dragIcon">🔒</span>
+          <span id="dragText">تثبيت الترتيب</span>
+        </button>
+        <button id="themeToggle" class="theme-toggle" aria-label="Toggle Theme">
+          <span id="themeIcon">☀️</span>
+          <span id="themeText">الوضع النهاري</span>
+        </button>
+        <button id="languageToggle" class="language-toggle" aria-label="Toggle Language">
+          <span id="languageIcon">🇺🇸</span>
+          <span id="languageText">English</span>
+        </button>
+        <button id="guideToggle" class="guide-toggle" aria-label="User Guide">
+          <span>❓</span>
+          <span id="guideText">دليل المستخدم</span>
+        </button>
+      </div>
+    </div>
+
+    <h1 id="mainTitle">101 Notes</h1>
+    <p class="subtitle" id="subtitle">اللهم صلي و سلم علي سيدنا محمد</p>
+  </header>
+
+  <main class="main-container">
+    <!-- Add Note Section -->
+    <div class="add-note-section">
+      <div class="add-note-form">
+        <textarea id="noteInput" placeholder="ما الذي يدور في ذهنك؟" aria-label="Note content"></textarea>
+        <button id="addNoteBtn" class="add-btn" aria-label="Add Note">
+          إضافة ملاحظة
+        </button>
+      </div>
+    </div>
+
+    <!-- Notes Section -->
+    <div class="section-header collapsed" id="notesHeader" aria-expanded="true">
+      <h2 class="section-title">
+        <span id="notesTitle">الملاحظات</span>
+        <span id="activeCounter" class="counter">0</span>
+      </h2>
+      <span class="chevron-icon">▼</span>
+    </div>
+    <div class="collapsible-wrapper collapsed" id="notesWrapper">
+      <div class="collapsible-inner">
+        <div id="notesContainer" class="notes-grid"></div>
+
+        <div id="emptyState" class="empty-state">
+          <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+              d="M9.663 17h4.673M12 3v1m6.364 1.636l-.707.707M21 12h-1M4 12H3m3.343-5.657l-.707-.707m2.828 9.9a5 5 0 117.072 0l-.548.547A3.374 3.374 0 0014 18.469V19a2 2 0 11-4 0v-.531c0-.895-.356-1.754-.988-2.386l-.548-.547z" />
+          </svg>
+          <h2 id="emptyStateTitle">لا توجد ملاحظات بعد</h2>
+          <p id="emptyStateText">ابدأ بإضافة ملاحظتك الأولى أعلاه</p>
+        </div>
+      </div>
+    </div>
+
+    <!-- Archive Section -->
+    <div class="section-header" id="archiveHeader">
+      <h2 class="section-title">
+        <span id="archiveTitle">الأرشيف</span>
+        <span id="archiveCounter" class="counter">0</span>
+      </h2>
+      <span class="chevron-icon">▼</span>
+    </div>
+    <div class="collapsible-wrapper" id="archiveWrapper">
+      <div class="collapsible-inner">
+        <div id="archiveContainer" class="notes-grid"></div>
+
+        <div id="archiveEmptyState" class="empty-state" style="display: none">
+          <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+              d="M5 8h14M5 8a2 2 0 110-4h14a2 2 0 110 4M5 8v10a2 2 0 002 2h10a2 2 0 002-2V8m-9 4h4" />
+          </svg>
+          <h2 id="archiveEmptyStateTitle">لا توجد ملاحظات مؤرشفة</h2>
+          <p id="archiveEmptyStateText">
+            قم بأرشفة الملاحظات للحفاظ على مساحة عملك نظيفة
+          </p>
+        </div>
+      </div>
+    </div>
+  </main>
+
+  <!-- Guide Modal -->
+  <div class="guide-modal" id="guideModal">
+    <div class="guide-content">
+      <div class="guide-header">
+        <h2 id="guideModalTitle">دليل المستخدم</h2>
+        <button id="guideClose" class="guide-close" aria-label="Close guide">
+          ×
+        </button>
+      </div>
+      <div class="guide-body" id="guideBody">
+        <!-- Content will be populated by JavaScript -->
+      </div>
+    </div>
+  </div>
+
+  <script src="script.js"></script>
+</body>
+
+</html>
