@@ -2,6 +2,9 @@
 
 **101 Notes** is a sophisticated, minimalist web-based note-taking application designed to help you organize your thoughts and daily tasks with speed and elegance. The application prioritizes user experience (UX) through a clean, intuitive interface that supports seamless organization and multi-language usage.
 
+## 🔗 Live Demo
+**Check it out live:** [101 Notes - Live Demo](https://YOUR-USERNAME.github.io/YOUR-REPO-NAME/)
+
 ## ✨ Key Features
 
 *   **🌐 Bi-lingual Support:** Comprehensive support for both Arabic (RTL) and English (LTR) with instant interface switching.
